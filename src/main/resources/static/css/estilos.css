@@ -1,7 +1,3 @@
-/* hoja de estilos de la clase 2 web y patrones */
-
-/* id ... #xxxx */
-
 #encabezado {
     position: absolute;
     top: 0;
@@ -37,7 +33,7 @@
 }
 
 #barralateral {
-     position: absolute;
+    position: absolute;
     top: 12%;
     left: 0;
     height: 81%;
