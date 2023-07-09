@@ -23,7 +23,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         }
         return lista;
     }
-
+    @Override
     @Transactional(readOnly = true)
     public Categoria getCategoria (Categoria categoria) {
         return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
@@ -43,6 +43,6 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public Categoria getCategoria(boolean activos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
