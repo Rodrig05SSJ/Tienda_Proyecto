@@ -42,17 +42,29 @@
                                 <div class="mb-3">
                                     <label for="idCategoria">[[#{producto.categoria}]]</label>
                                     <select name="categoria.idCategoria" class="form-select" aria-label="Default select exa">
-                                        <option th:each="c : ${categorias}"
-                                                 th:value="c.idCategoria"
-                                            th:tex="c.descripcion">
-                                                     
-                                        </option>
+                                        <option th:each="c : ${categorias}" 
+                                                th:value="${c.idCategoria}" 
+                                                th:text="${c.descripcion}">
+                                        </option>
                                     </select>
                                 </div>
                             
                                 <div class="mb-3">
                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
                                     <input type="text" class="form-control" name="descripcion" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detalle">[[#{producto.detalle}]]</label>
+                                    <input class="form-control" name="detalle" required="true"></input>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="precio">[[#{producto.precio}]]</label>
+                                    <input type="number" class="form-control" name="precio" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="existencias">[[#{producto.existencias}]]</label>
+                                    <input type="number" class="form-control" name="existencias" required="true"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="activo">[[#{producto.activo}]]</label>
@@ -89,16 +101,16 @@
                                             <th class="text-center">[[#{producto.descripcion}]]</th>​
                                             <th class="text-center">[[#{producto.precio}]]</th>​
                                             <th class="text-center">[[#{producto.existencias}]]</th>​
-                                            <th class="text-center">[[#{producto.total}]]</th>​
+                                            <th class="text-center">[[#{producto.total}]]</th>​​
                                             <th class="text-center">[[#{producto.activo}]]</th>​
-                                            <th class="text-center">[[#{producto.categoria}]]</th>​
+                                            <th class="text-center">[[#{producto.categoria}]]</th>
                                             <th></th><th></th></tr>​
                                     </thead>
                                     <tbody>
                                         <tr th:each="producto, contador : ${productos}">​
                                             <td class="text-center">[[${contador.count}]]</td>​
                                             <td class="fs-6">[[${producto.descripcion}]]</td>​
-                                        <td class="text-end">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>​
+                                            <td class="text-end">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>​
                                             <td class="text-center">[[${producto.existencias}]]</td>​
                                             <td class="text-end">[[${#numbers.formatDecimal(producto.precio*producto.existencias, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>​
                                             <td  class="text-center" th:text="${producto.activo} ? 'Activo' : 'Inactivo'"/>​

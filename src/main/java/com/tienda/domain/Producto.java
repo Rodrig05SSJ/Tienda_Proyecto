@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
 
+
 @Data
 @Entity
-@Table (name="producto")
-public class Producto implements Serializable{
-    
+@Table(name="producto")
+public class Producto implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_producto")
@@ -21,19 +21,21 @@ public class Producto implements Serializable{
     private int existencias;
     private String rutaImagen;
     private boolean activo;
-    
+
     @ManyToOne
-    @JoinColumn (name="id_categoria")
+    @JoinColumn(name="id_categoria")
     Categoria categoria;
 
-    public Producto(String descripcion, String detalle, double precio, int existencias, String rutaImagen, boolean activo) {
+    public Producto() {
+    }
+
+
+    public Producto(String descripcion, String detalle, double precio, int existencias, String imagen, boolean activo) {
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
         this.existencias = existencias;
-        this.rutaImagen = rutaImagen;
+        this.rutaImagen = imagen;
         this.activo = activo;
     }
-    
-    
 }

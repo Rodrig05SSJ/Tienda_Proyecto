@@ -16,4 +16,6 @@ public interface ProductoService {
 
     public Categoria getCategoria(Categoria categoria);
 
+    public Producto getProducto(Producto producto);
+
 }
