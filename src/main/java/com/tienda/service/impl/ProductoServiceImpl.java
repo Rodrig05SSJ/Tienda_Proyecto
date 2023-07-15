@@ -52,4 +52,23 @@ public class ProductoServiceImpl implements ProductoService {
     public Categoria getCategoria(Categoria categoria) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
+    
+     @Override
+    @Transactional(readOnly=true)    
+    public List<Producto> metodoJPQL(double precioInf, double precioSup) {
+        return productoDao.metodoJPQL(precioInf, precioSup);
+    }
+    
+     @Override
+    @Transactional(readOnly=true)    
+    public List<Producto> metodoNativo(double precioInf, double precioSup) {
+        return productoDao.metodoNativo(precioInf, precioSup);
+    }
+
 }
